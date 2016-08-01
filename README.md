@@ -1,6 +1,7 @@
 # node-han-css
 
 [![Build Status](https://travis-ci.org/lujjjh/node-han-css.svg?branch=master)](https://travis-ci.org/lujjjh/node-han-css)
+[!NPM version[](https://img.shields.io/npm/v/node-han-css.svg)](https://www.npmjs.com/package/node-han-css)
 
 An unofficial library to use han-css in Node.
 
