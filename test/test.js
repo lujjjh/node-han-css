@@ -4,6 +4,7 @@ var Han = require('..');
 describe('Han', function () {
   describe('#ready()', function () {
     it('should invoke the callback when it is ready', function (done) {
+      this.timeout(10000);
       var han = new Han();
       han.ready(function () {
         done();
