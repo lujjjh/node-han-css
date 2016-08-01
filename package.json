@@ -1,6 +1,6 @@
 {
   "name": "node-han-css",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "An unofficial library to use han-css in Node",
   "main": "lib/index.js",
   "scripts": {
