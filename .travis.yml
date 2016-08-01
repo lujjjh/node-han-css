@@ -3,7 +3,8 @@ node_js:
   - "6"
   - "5"
   - "0.12"
-addons:
+env:
+  - CXX=g++-4.8
 addons:
   apt:
     sources:
