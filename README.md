@@ -57,7 +57,7 @@ han.ready(function () {
 });
 
 // After 5 seconds, the callback will be called immediately
-// since the environment is ready
+// since the environment will have been ready
 setTimeout(function () {
   han.ready(function () {
     this.render('举头望明月，低头思故乡。');
@@ -65,7 +65,7 @@ setTimeout(function () {
 }, 5000);
 ```
 
-Also, you may manually call han-css JavaScript API by using the
+Also, you may manually call JavaScript API of han-css by using the
 optional second parameter.
 
 ```js
