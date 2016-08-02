@@ -3,39 +3,36 @@
 [![Build Status](https://travis-ci.org/lujjjh/node-han-css.svg?branch=master)](https://travis-ci.org/lujjjh/node-han-css)
 [![NPM version](https://img.shields.io/npm/v/node-han-css.svg)](https://www.npmjs.com/package/node-han-css)
 
-[中文][README-zh-CN.md]
+[English][README.md]
 
-An unofficial library to use han-css in Node.
+（非官方）在 Node 里使用汉字标准格式（han-css）。
 
-## Requirements
+## 要求
 
-Before installing this package, you should first install the dependencies of [canvas][node-canvas].
+在安装这个包之前，你应当先安装 [canvas][node-canvas] 的依赖。
 
-## Installation
+## 安装
 
     $ npm install --save node-han-css
 
-## Usage
+## 用法
 
-First of all, require `node-han-css`.
+首先，引入 `node-han-css`。
 
 ```js
 var Han = require('node-han-css');
 ```
 
-Second, create a new instance. Under the hood, it creates a new han-css
-environment with jsdom.
+然后，创建一个新的实例。实际上，这会使用 jsdom 创建一个新的 han-css 环境。
 
 ```js
 var han = new Han();
 ```
 
-Finally, call `han.ready()` to provide a callback to be called once
-the environment is ready.
+最后，调用 `han.ready()`，传入一个回调函数。一旦环境就绪，`node-han-css`
+就会调用它。
 
-Note that the context of the callback is set to the instance of `Han`
-(i.e. `han`). You can call `han.render()` once the environment is
-ready.
+注意回调函数的上下文是 `Han` 的实例（即 `han`）。一旦环境就绪，你就可以调用 `han.render` 了。
 
 ```js
 han.ready(function () {
@@ -47,17 +44,15 @@ han.ready(function () {
 });
 ```
 
-You may call `han.ready()` multiple times, even when the environment
-is ready. `node-han-css` shares a single jsdom environment in every
-`Han` instance to accelerate the process.
+你可以多次调用 `han.ready()`，即便在环境已经就绪的时候。`node-han-css` 的每一个 `Han` 实例只有一个 jsdom 环境，这可以加速渲染过程。
 
 ```js
 han.ready(function () {
   this.render('床前明月光，疑是地上霜。');
 });
 
-// After 5 seconds, the callback will be called immediately
-// since the environment is ready
+// 由于 5 秒之后环境已经就绪，
+// 彼时会立即调用这个回调函数
 setTimeout(function () {
   han.ready(function () {
     this.render('举头望明月，低头思故乡。');
@@ -65,8 +60,7 @@ setTimeout(function () {
 }, 5000);
 ```
 
-Also, you may manually call han-css JavaScript API by using the
-optional second parameter.
+你也可以手动调用 han-css 的 JavaScript API，只需要传入第 2 个可选参数。
 
 ```js
 this.render('PHP是世界上……', function (han) {
@@ -75,7 +69,7 @@ this.render('PHP是世界上……', function (han) {
 // PHP<h-hws hidden=""> </h-hws>是世界上……
 ```
 
-See [JavaScript API][hanzi-js-api] for more details.
+详情请查阅 [JavaScript API][hanzi-js-api]。
 
 [node-canvas]: https://github.com/Automattic/node-canvas#installation
 [hanzi-js-api]: https://css.hanzi.co/manual/js-api
