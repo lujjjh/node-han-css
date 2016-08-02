@@ -5,7 +5,7 @@
 
 [中文](README-zh-CN.md)
 
-An unofficial library to use han-css in Node.
+An unofficial library to use hanzi (漢字標準格式) in Node.
 
 ## Requirements
 

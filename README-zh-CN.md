@@ -5,7 +5,7 @@
 
 [English](README.md)
 
-（非官方）在 Node 里使用汉字标准格式（han-css）。
+（非官方）在 Node 里使用汉字标准格式。
 
 ## 要求
 
