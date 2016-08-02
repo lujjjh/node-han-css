@@ -7,7 +7,7 @@ An unofficial library to use han-css in Node.
 
 ## Dependencies
 
-Before installing this package, you should first install dependencies of [canvas][node-canvas].
+Before installing this package, you should first install the dependencies of [canvas][node-canvas].
 
 ## Installation
 
