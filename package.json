@@ -24,6 +24,7 @@
     "mocha": "^3.0.0"
   },
   "dependencies": {
+    "bluebird": "^3.4.1",
     "canvas": "^1.4.0",
     "han-css": "^3.3.0",
     "jsdom": "^9.4.1"

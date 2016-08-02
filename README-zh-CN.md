@@ -44,6 +44,19 @@ han.ready(function () {
 });
 ```
 
+如果不传递任何参数，则返回 Promise。
+
+```js
+han.ready()
+  .then(function (han) {
+    console.log(han.render('Hello，世界'));
+    // Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
+
+    console.log(han.render('<em>Hi</em>'));
+    // <em><h-word class="western"><h-char class="alphabet latin">H</h-char><h-char class="alphabet latin">i</h-char></h-word></em>
+  });
+```
+
 你可以多次调用 `han.ready()`，即便在环境已经就绪的时候。`node-han-css` 的每一个 `Han` 实例只有一个 jsdom 环境，这可以加速渲染过程。
 
 ```js

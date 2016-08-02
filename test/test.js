@@ -7,10 +7,21 @@ describe('Han', function () {
     it('should invoke the callback when it is ready', function (done) {
       this.timeout(10000);
       var han = new Han();
-      han.ready(function () {
+      han.ready(function (error, innerHan) {
+        expect(innerHan).to.be(han);
+        expect(this).to.be(han);
         done();
       });
-    })
+    });
+
+    it('should support Promise', function (done) {
+      this.timeout(10000);
+      var han = new Han();
+      han.ready().then(function (innerHan) {
+        expect(innerHan).to.be(han);
+        done();
+      });
+    });
   });
 
   describe('#render()', function () {

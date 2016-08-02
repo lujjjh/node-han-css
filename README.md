@@ -38,13 +38,26 @@ Note that the context of the callback is set to the instance of `Han`
 ready.
 
 ```js
-han.ready(function () {
+han.ready(function (error, han) {
   console.log(this.render('Hello，世界'));
   // Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
 
   console.log(this.render('<em>Hi</em>'));
   // <em><h-word class="western"><h-char class="alphabet latin">H</h-char><h-char class="alphabet latin">i</h-char></h-word></em>
 });
+```
+
+If no parameters are passed, it returns a Promise.
+
+```js
+han.ready()
+  .then(function (han) {
+    console.log(han.render('Hello，世界'));
+    // Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
+
+    console.log(han.render('<em>Hi</em>'));
+    // <em><h-word class="western"><h-char class="alphabet latin">H</h-char><h-char class="alphabet latin">i</h-char></h-word></em>
+  });
 ```
 
 You may call `han.ready()` multiple times, even when the environment
