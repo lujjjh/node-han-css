@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/lujjjh/node-han-css.svg?branch=master)](https://travis-ci.org/lujjjh/node-han-css)
 [![NPM version](https://img.shields.io/npm/v/node-han-css.svg)](https://www.npmjs.com/package/node-han-css)
 
-[中文][README-zh-CN.md]
+[中文](README-zh-CN.md)
 
 An unofficial library to use han-css in Node.
 

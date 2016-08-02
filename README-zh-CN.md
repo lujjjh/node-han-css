@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/lujjjh/node-han-css.svg?branch=master)](https://travis-ci.org/lujjjh/node-han-css)
 [![NPM version](https://img.shields.io/npm/v/node-han-css.svg)](https://www.npmjs.com/package/node-han-css)
 
-[English][README.md]
+[English](README.md)
 
 （非官方）在 Node 里使用汉字标准格式（han-css）。
 
