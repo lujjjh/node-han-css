@@ -3,92 +3,34 @@
 [![Build Status](https://travis-ci.org/lujjjh/node-han-css.svg?branch=master)](https://travis-ci.org/lujjjh/node-han-css)
 [![NPM version](https://img.shields.io/npm/v/node-han-css.svg)](https://www.npmjs.com/package/node-han-css)
 
-[中文](README-zh-CN.md)
-
 An unofficial library to use hanzi (漢字標準格式) in Node.
 
-## Requirements
+一个非官方的漢字標準格式 Node 库。
 
-Before installing this package, you should first install the dependencies of [canvas][node-canvas].
-
-## Installation
+## Installation / 安装
 
     $ npm install --save node-han-css
 
-## Usage
-
-First of all, require `node-han-css`.
+## Usage / 使用
 
 ```js
-var Han = require('node-han-css');
+const Han = require('node-han-css');
+
+const han = new Han();
+
+console.log(han.render('Hello，世界'));
+// Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
+
+console.log(han.render('<em>Hi</em>'));
+// <em>Hi</em>
 ```
 
-Second, create a new instance. Under the hood, it creates a new han-css
-environment with jsdom.
+By default, it internally calls [`render`](https://hanzi.pro/manual/js-api#render).
+You may also specify a custom renderer by passing a function to the second parameter.
+
+内部默认调用 [`render`](https://hanzi.pro/manual/js-api#render)，也可通过第二个参数自定义渲染的方法。
 
 ```js
-var han = new Han();
-```
-
-Finally, call `han.ready()` to provide a callback to be called once
-the environment is ready.
-
-Note that the context of the callback is set to the instance of `Han`
-(i.e. `han`). You can call `han.render()` once the environment is
-ready.
-
-```js
-han.ready(function (error, han) {
-  console.log(this.render('Hello，世界'));
-  // Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
-
-  console.log(this.render('<em>Hi</em>'));
-  // <em><h-word class="western"><h-char class="alphabet latin">H</h-char><h-char class="alphabet latin">i</h-char></h-word></em>
-});
-```
-
-If no parameters are passed, it returns a Promise.
-
-```js
-han.ready()
-  .then(function (han) {
-    console.log(han.render('Hello，世界'));
-    // Hello<h-char unicode="ff0c" class="biaodian cjk bd-end bd-cop bd-jiya bd-hangable"><h-inner>，</h-inner></h-char>世界
-
-    console.log(han.render('<em>Hi</em>'));
-    // <em><h-word class="western"><h-char class="alphabet latin">H</h-char><h-char class="alphabet latin">i</h-char></h-word></em>
-  });
-```
-
-You may call `han.ready()` multiple times, even when the environment
-is ready. `node-han-css` shares a single jsdom environment in every
-`Han` instance to accelerate the process.
-
-```js
-han.ready(function () {
-  this.render('床前明月光，疑是地上霜。');
-});
-
-// After 5 seconds, the callback will be called immediately
-// since the environment will have been ready
-setTimeout(function () {
-  han.ready(function () {
-    this.render('举头望明月，低头思故乡。');
-  });
-}, 5000);
-```
-
-Also, you may manually call JavaScript API of han-css by using the
-optional second parameter.
-
-```js
-this.render('PHP是世界上……', function (han) {
-  han.renderHWS();
-});
+han.render('PHP是世界上……', han => han.renderHWS());
 // PHP<h-hws hidden=""> </h-hws>是世界上……
 ```
-
-See [JavaScript API][hanzi-js-api] for more details.
-
-[node-canvas]: https://github.com/Automattic/node-canvas#installation
-[hanzi-js-api]: https://css.hanzi.co/manual/js-api
